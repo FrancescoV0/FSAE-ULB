@@ -3,11 +3,12 @@
 - Simulink model:
     - [ ] Add limits to the gimball joint
     - [ ] Create a system to get the speed, camber, and slip ancle of each wheel
-    -  [ ] Add the influence of camber inside the Magic formula block
-    - [ ] Set correctly the point of application of the downforce
-    - [ ] Add the aerodynamic drag directly to the chassi?
+    - [ ] Add the influence of camber inside the Magic formula block
+    - [ ] Set correctly the point of application of the downforces
+    - [ ] Add the aerodynamic drag directly to the chassis?
     - [ ] Refine the formula to calculatye the speed of the car
     - [ ] Set correctly the new aerodynamic coefficients to take into account the presence of the wheels
+    - [ ] Add a spring + damper system
 
 - OpenFOAM simulation:
     - [ ] Add the wheels to the geometry
