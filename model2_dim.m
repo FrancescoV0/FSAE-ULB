@@ -11,6 +11,8 @@ tyre.stiffness = 1;
 tyre.damping = 1;
 hub_offset = 2.5; %cm
 
+%[B, C, D, E]
+tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
 %% Suspensions
 suspension = struct;
 
