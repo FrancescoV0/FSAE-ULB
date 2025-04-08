@@ -11,6 +11,10 @@ tyre.stiffness = 1;
 tyre.damping = 1;
 hub_offset = 2.5; % [cm]
 
+tyre.mass = 8; % [kg] estimated values
+tyre.volume = pi*(tyre.radius/100)^2 * (tyre.width/100);
+tyre.density = tyre.mass/tyre.volume;
+
 %[B, C, D, E]
 tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
 %% Suspensions
@@ -54,4 +58,9 @@ suspension.rear.alpha = 90 - suspension.rear.beta - suspension.rear.lower.inclin
 
 %% Simulation data
 Uinf = 10; %m/s
-w = Uinf / tyre.radius; % [rad/s]
+w = Uinf / (tyre.radius /100); % [rad/s]
+
+%% Aerodynamics:
+% forces normalized by the speed squared : F = coef*abs(v)^2
+Lift_reduced = -0.77;
+Drag_reduced = 0.83; 
