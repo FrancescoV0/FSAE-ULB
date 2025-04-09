@@ -62,5 +62,6 @@ w = Uinf / (tyre.radius /100); % [rad/s]
 
 %% Aerodynamics:
 % forces normalized by the speed squared : F = coef*abs(v)^2
-Lift_reduced = -0.77;
-Drag_reduced = 0.83; 
+Aero = struct;
+Aero.Lift_reduced = -0.775;
+Aero.Drag_reduced = 0.837; 
