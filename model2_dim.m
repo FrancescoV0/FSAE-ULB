@@ -17,6 +17,9 @@ tyre.density = tyre.mass/tyre.volume;
 
 %[B, C, D, E]
 tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
+
+filename = 'fsae190_50R10.tir';
+tireParams = simscape.multibody.tirread(filename);
 %% Suspensions
 suspension = struct;
 
@@ -37,6 +40,7 @@ suspension.front.lower.inclination = atan((h1 - tyre.radius + hub_offset)/d1) * 
 suspension.front.stiffness = 1e3;
 suspension.front.damping = 1.3;
 
+
 %rear suspension
 h2 = 15; % [cm]
 d2 = 40; % [cm]
@@ -50,8 +54,8 @@ suspension.rear.lower.radius = 2; % [cm]
 suspension.rear.lower.length = sqrt((d2)^2+(h2 - tyre.radius + hub_offset)^2); %[cm]
 suspension.rear.lower.inclination = atan((h2 - tyre.radius + hub_offset)/d2) * 180/pi; %°
 
-suspension.rear.stiffness = 1e3;
-suspension.rear.damping = 1.3;
+suspension.rear.stiffness = 1.5e3;
+suspension.rear.damping = 1.5;
 
 suspension.rear.beta = atan(a2*cos(suspension.rear.lower.inclination)/(a2*sin(suspension.rear.lower.inclination) + 20.5)) * 180/pi; %°
 suspension.rear.alpha = 90 - suspension.rear.beta - suspension.rear.lower.inclination; %° 
