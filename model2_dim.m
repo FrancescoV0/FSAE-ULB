@@ -39,7 +39,7 @@ suspension.front.lower.inclination = atan((h1 - tyre.radius + hub_offset)/d1) * 
 
 suspension.front.stiffness = 1e3;
 suspension.front.damping = 1.3;
-
+suspension.front.distance_revolute = 10; % [cm]
 
 %rear suspension
 h2 = 15; % [cm]
@@ -56,6 +56,8 @@ suspension.rear.lower.inclination = atan((h2 - tyre.radius + hub_offset)/d2) * 1
 
 suspension.rear.stiffness = 1.5e3;
 suspension.rear.damping = 1.5;
+suspension.rear.distance_revolute = 10; % [cm]
+
 
 suspension.rear.beta = atan(a2*cos(suspension.rear.lower.inclination)/(a2*sin(suspension.rear.lower.inclination) + 20.5)) * 180/pi; %°
 suspension.rear.alpha = 90 - suspension.rear.beta - suspension.rear.lower.inclination; %° 
