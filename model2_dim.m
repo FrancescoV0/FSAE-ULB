@@ -1,11 +1,42 @@
 %% Geometrical dimensions of the vehicle
 % See sketch at: https://drive.google.com/file/d/1E8DDmy7k4OS2bsul31rZqGsizzR9vDdF/view?usp=sharing
 
+%% Vehicle propreties
+
+vehicle = struct;
+vehicle.totalmass = 1000; %kg
+vehicle.l = 3 ; %m
+vehicle.l1 = 1.3 ; %m
+vehicle.l2 = 1.7 ; %m
+vehicle.h = 0.3; %m HEIGHT OF THE GRAVITY CENTER OF THE CAR
+vehicle.mu_a = 0.9 ; %adherence
+vehicle.mu_g = 0.3;
+
+%% Electric motor
+
+motor = struct;
+motor.efficiency = 0.95;
+motor.gearratio = 8;
+motor.maxpower = 80000;
+motor.maxtorque = 420;
+motor.torque_speed = torque_speed_curve;
+%Provisoire
+drivetrain = struct;
+drivetrain.i_tot = 3; %kgm^2
+
+%% Braking system
+
+brake = struct;
+brake.gain = 10;
+brake.brakefraction = 0.3;
+
 %% Tyres
 
 tyre = struct;
 tyre.radius = 25.5; % [cm]
+tyre.dynamic_radius = 0.98*tyre.radius; %cm
 tyre.width = 20.5; % [cm]
+tyre.Cr = 0.015; %PROVISOIRE
 
 tyre.stiffness = 1;
 tyre.damping = 1;
@@ -20,6 +51,10 @@ tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.373300291
 
 filename = 'fsae190_50R10.tir';
 tireParams = simscape.multibody.tirread(filename);
+
+%Provisoire
+wheel.inertia1 = 0.158067; %kgm^2
+wheel.inertia2 = 0.158067; %kgm^2
 %% Suspensions
 suspension = struct;
 
