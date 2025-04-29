@@ -55,6 +55,10 @@ tireParams = simscape.multibody.tirread(filename);
 %Provisoire
 wheel.inertia1 = 0.158067; %kgm^2
 wheel.inertia2 = 0.158067; %kgm^2
+
+wheel.s6dof.stiffness = 0;
+wheel.s6dof.damping = 0;
+
 %% Suspensions
 suspension = struct;
 
@@ -72,8 +76,9 @@ suspension.front.lower.radius = 2; % [cm]
 suspension.front.lower.length = sqrt((d1)^2+(h1 - tyre.radius + hub_offset)^2); %cm
 suspension.front.lower.inclination = atan((h1 - tyre.radius + hub_offset)/d1) * 180/pi; %°
 
-suspension.front.stiffness = 1e3;
-suspension.front.damping = 1.3;
+suspension.front.stiffness = 3e6;
+suspension.front.damping = 1.5e4;
+suspension.front.eq = 0.209325; %[m]
 suspension.front.distance_revolute = 10; % [cm]
 
 %rear suspension
@@ -89,9 +94,10 @@ suspension.rear.lower.radius = 2; % [cm]
 suspension.rear.lower.length = sqrt((d2)^2+(h2 - tyre.radius + hub_offset)^2); %[cm]
 suspension.rear.lower.inclination = atan((h2 - tyre.radius + hub_offset)/d2) * 180/pi; %°
 
-suspension.rear.stiffness = 1.5e3;
-suspension.rear.damping = 1.5;
+suspension.rear.stiffness = 3e6;
+suspension.rear.damping = 1.5e4;
 suspension.rear.distance_revolute = 10; % [cm]
+suspension.rear.eq = 0.212315; % [m]
 
 
 suspension.rear.beta = atan(a2*cos(suspension.rear.lower.inclination)/(a2*sin(suspension.rear.lower.inclination) + 20.5)) * 180/pi; %°
@@ -106,3 +112,6 @@ w = Uinf / (tyre.radius /100); % [rad/s]
 Aero = struct;
 Aero.Lift_reduced = -0.775;
 Aero.Drag_reduced = 0.837; 
+
+g = 9.81;
+slope_angle = 0;
