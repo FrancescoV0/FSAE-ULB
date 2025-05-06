@@ -1,6 +1,12 @@
 %% Geometrical dimensions of the vehicle
 % See sketch at: https://drive.google.com/file/d/1E8DDmy7k4OS2bsul31rZqGsizzR9vDdF/view?usp=sharing
 
+proj = currentProject;
+rootDir = proj.RootFolder;
+framePath = rootDir + 'FRAME_KMLI.STL';
+geometryPath = fullfile(proj.RootFolder, 'FRAME_KMLI.STL');  % Adjust subfolder and filename as needed
+
+
 %% Vehicle propreties
 
 vehicle = struct;
@@ -113,5 +119,11 @@ Aero = struct;
 Aero.Lift_reduced = -0.775;
 Aero.Drag_reduced = 0.837; 
 
+%%
 g = 9.81;
 slope_angle = 0;
+
+%% Logs out:
+Table = out.logsout.extractTimetable;
+out.SimulationMetadata.TimingInfo
+writetimetable(Table, 'logsout.xlsx');
