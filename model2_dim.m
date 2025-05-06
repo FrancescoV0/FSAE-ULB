@@ -124,6 +124,7 @@ g = 9.81;
 slope_angle = 0;
 
 %% Logs out:
-Table = out.logsout.extractTimetable;
-out.SimulationMetadata.TimingInfo
-writetimetable(Table, 'logsout.xlsx');
+% Table = out.logsout.extractTimetable;
+% out.SimulationMetadata.TimingInfo
+% writetimetable(Table, 'logsout.xlsx');
+% plot(Table.Time, Table.Aero_drag)
