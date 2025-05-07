@@ -26,6 +26,7 @@ motor.gearratio = 8;
 motor.maxpower = 80000;
 motor.maxtorque = 420;
 motor.torque_speed = torque_speed_curve;
+motor.torque_speed(:,1) = min(motor.torque_speed(:,1), 5960);
 %Provisoire
 drivetrain = struct;
 drivetrain.i_tot = 3; %kgm^2
