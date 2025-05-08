@@ -57,3 +57,17 @@ xlabel('x [m]');
 ylabel('y [m]');
 grid();
 
+% ground contact forces
+figure();
+plot(Table.Time, Table.("Contact Forces_FL")(:,3), Table.Time, Table.ContactForces_FR(:,3), Table.Time, Table.Contact_forces_RL(:,3), Table.Time, Table.ContactForces_RR(:,3), 'LineWidth', 1);
+title('Contact forces (z-components)')
+xlabel('time [s]');
+ylabel('Force [N]');
+legend({'FL', 'FR', 'RL', 'RR'});
+grid();
+
+for i = 1:length(Table.("chassis speed (chassis ref)")(:,1))
+    s(i) = norm(Table.("chassis speed (chassis ref)")(i,:));
+end
+figure
+plot(Table.Time, s)

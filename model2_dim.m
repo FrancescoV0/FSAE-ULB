@@ -83,7 +83,7 @@ suspension.front.lower.radius = 2; % [cm]
 suspension.front.lower.length = sqrt((d1)^2+(h1 - tyre.radius + hub_offset)^2); %cm
 suspension.front.lower.inclination = atan((h1 - tyre.radius + hub_offset)/d1) * 180/pi; %°
 
-suspension.front.stiffness = 3e5;
+suspension.front.stiffness = 2e5;
 suspension.front.damping = 3e3;
 suspension.front.eq = 0.209325; %[m]
 suspension.front.distance_revolute = 10; % [cm]
@@ -101,7 +101,7 @@ suspension.rear.lower.radius = 2; % [cm]
 suspension.rear.lower.length = sqrt((d2)^2+(h2 - tyre.radius + hub_offset)^2); %[cm]
 suspension.rear.lower.inclination = atan((h2 - tyre.radius + hub_offset)/d2) * 180/pi; %°
 
-suspension.rear.stiffness = 3e5;
+suspension.rear.stiffness = 2e5;
 suspension.rear.damping = 3e3;
 suspension.rear.distance_revolute = 10; % [cm]
 suspension.rear.eq = 0.212315; % [m]
