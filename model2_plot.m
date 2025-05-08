@@ -6,7 +6,15 @@ writetimetable(Table, 'logsout.xlsx');
 close all;
 figure()
 plot(Table.Time, Table.("chassis speed (chassis ref)"), 'LineWidth', 1)
-title('Chassis speed (chassis ref)')
+title('Chassis speed (chassis axis)')
+xlabel('time [s]');
+ylabel('Speed [m/s]');
+legend({'xdot', 'ydot', 'zdot'});
+grid();
+
+figure()
+plot(Table.Time, Table.speed_tr, 'LineWidth', 1)
+title('Chassis speed (world axis)')
 xlabel('time [s]');
 ylabel('Speed [m/s]');
 legend({'xdot', 'ydot', 'zdot'});
