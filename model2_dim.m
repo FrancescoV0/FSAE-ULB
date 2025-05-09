@@ -1,10 +1,10 @@
 %% Geometrical dimensions of the vehicle
 % See sketch at: https://drive.google.com/file/d/1E8DDmy7k4OS2bsul31rZqGsizzR9vDdF/view?usp=sharing
 
-proj = currentProject;
-rootDir = proj.RootFolder;
-framePath = rootDir + 'FRAME_KMLI.STL';
-geometryPath = fullfile(proj.RootFolder, 'FRAME_KMLI.STL');  % Adjust subfolder and filename as needed
+%proj = currentProject;
+%rootDir = proj.RootFolder;
+%framePath = rootDir + 'FRAME_KMLI.STL';
+%geometryPath = fullfile(proj.RootFolder, 'FRAME_KMLI.STL');  % Adjust subfolder and filename as needed
 
 
 %% Vehicle propreties
