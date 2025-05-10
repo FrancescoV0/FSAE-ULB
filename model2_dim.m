@@ -34,6 +34,14 @@ drivetrain.i_tot = 3; %kgm^2
 %% Braking system
 
 brake = struct;
+brake.Ffoot_max = 400;  % N, typical max foot‐force on a race‐pedal
+brake.mastercylinderA = 40e-4; %m^2
+brake.pedalratio = 6;
+brake.pistonA = 25*1e-4;%m^2
+brake.pistonN = 2;
+brake.padfriction = 0.4;
+brake.effectiveradius = 0.09; %m
+
 brake.gain = 10;
 brake.brakefraction = 0.3;
 
@@ -41,7 +49,7 @@ brake.brakefraction = 0.3;
 
 tyre = struct;
 tyre.radius = 25.5; % [cm]
-tyre.dynamic_radius = 0.98*tyre.radius; %cm
+tyre.dynamic_radius = 0.98 * tyre.radius; %cm
 tyre.width = 20.5; % [cm]
 tyre.Cr = 0.015; %PROVISOIRE
 
