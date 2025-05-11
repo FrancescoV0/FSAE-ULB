@@ -22,14 +22,14 @@ vehicle.mu_g = 0.3;
 load("torque_speed_curve.mat")
 motor = struct;
 motor.efficiency = 0.95;
-motor.gearratio = 8;
+motor.gearratio = 4.113;
 motor.maxpower = 80000;
 motor.maxtorque = 420;
 motor.torque_speed = torque_speed_curve;
 motor.torque_speed(:,1) = min(motor.torque_speed(:,1), 5960);
 %Provisoire
 drivetrain = struct;
-drivetrain.i_tot = 3; %kgm^2
+drivetrain.i_tot = 0.3; %kgm^2
 
 %% Braking system
 
@@ -61,13 +61,6 @@ tyre.mass = 8; % [kg] estimated values
 tyre.volume = pi*(tyre.radius/100)^2 * (tyre.width/100);
 tyre.density = tyre.mass/tyre.volume;
 
-tyre.Ca = 127632.5; % cornering stiffness [N/rad]
-
-% normal loads on front and rear axles
-vehicle.Wf = vehicle.l1/vehicle.l *vehicle.totalmass*9.81;
-vehicle.Wr = vehicle.l2/vehicle.l *vehicle.totalmass*9.81;
-vehicle.K_us = (vehicle.Wf - vehicle.Wr) /(tyre.Ca*2); % understeer coefficient
-
 %[B, C, D, E]
 tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
 
@@ -75,8 +68,8 @@ filename = 'fsae190_50R10.tir';
 tireParams = simscape.multibody.tirread(filename);
 
 %Provisoire
-wheel.inertia1 = 0.158067; %kgm^2
-wheel.inertia2 = 0.158067; %kgm^2
+wheel.ir1 = 0.02; %kgm^2
+wheel.ir2 = 0.01; %kgm^2
 
 wheel.s6dof.stiffness = 0;
 wheel.s6dof.damping = 0;
