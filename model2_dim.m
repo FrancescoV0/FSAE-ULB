@@ -10,7 +10,7 @@
 %% Vehicle propreties
 
 vehicle = struct;
-vehicle.totalmass = 1000; %kg
+vehicle.totalmass = 300; %kg
 vehicle.l = 3 ; %m
 vehicle.l1 = 1.3 ; %m
 vehicle.l2 = 1.7 ; %m
@@ -60,6 +60,13 @@ hub_offset = 2.5; % [cm]
 tyre.mass = 8; % [kg] estimated values
 tyre.volume = pi*(tyre.radius/100)^2 * (tyre.width/100);
 tyre.density = tyre.mass/tyre.volume;
+
+tyre.Ca = 127632.5; % cornering stiffness [N/rad]
+
+% normal loads on front and rear axles
+vehicle.Wf = vehicle.l1/vehicle.l *vehicle.totalmass*9.81;
+vehicle.Wr = vehicle.l2/vehicle.l *vehicle.totalmass*9.81;
+vehicle.K_us = (vehicle.Wf - vehicle.Wr) /(tyre.Ca*2); % understeer coefficient
 
 %[B, C, D, E]
 tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
