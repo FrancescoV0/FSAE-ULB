@@ -11,12 +11,12 @@
 
 vehicle = struct;
 vehicle.totalmass = 300; %kg
-vehicle.l = 3 ; %m
-vehicle.l1 = 1.3 ; %m
-vehicle.l2 = 1.7 ; %m
+vehicle.l = 1.7 ; %m
+vehicle.l1 = 0.7 ; %m
+vehicle.l2 = 1 ; %m
 vehicle.h = 0.3; %m HEIGHT OF THE GRAVITY CENTER OF THE CAR
-vehicle.mu_a = 0.9 ; %adherence
-vehicle.mu_g = 0.3;
+vehicle.mu_a = 1.2 ; %adherence
+vehicle.mu_g = 0.8;
 
 %% Electric motor
 load("torque_speed_curve.mat")
@@ -67,7 +67,6 @@ tyre.Ca = 127632.5; % cornering stiffness [N/rad]
 vehicle.Wf = vehicle.l1/vehicle.l *vehicle.totalmass*9.81;
 vehicle.Wr = vehicle.l2/vehicle.l *vehicle.totalmass*9.81;
 vehicle.K_us = (vehicle.Wf - vehicle.Wr) /(tyre.Ca*2); % understeer coefficient
-
 
 %[B, C, D, E]
 tyre.magicformula_parameters = [0.198719422442493, 1.64946543129765, 2.37330029195307, 0.233708623192915];
